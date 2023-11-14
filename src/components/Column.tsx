@@ -1,15 +1,25 @@
 import styled from "styled-components";
 import Task from "./Task";
+import { Droppable } from "react-beautiful-dnd";
 
 const Column = (props: any) => {
   return (
     <StyledColumn>
       <h3 className="column__title">{props.column.title}</h3>
-      <div className="column__tasks-list">
-        {props.tasks.map((task: any) => (
-          <Task key={task.id} task={task} />
-        ))}
-      </div>
+      <Droppable droppableId={props.column.id}>
+        {(provided) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className="column__tasks-list"
+          >
+            {props.tasks.map((task: any, index: number) => (
+              <Task key={task.id} task={task} index={index} />
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </StyledColumn>
   );
 };
