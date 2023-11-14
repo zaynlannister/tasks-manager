@@ -2,22 +2,26 @@ import styled from "styled-components";
 import Task from "./Task";
 import { Droppable } from "react-beautiful-dnd";
 
+interface TaskList {
+  $isDraggingOver: boolean;
+}
+
 const Column = (props: any) => {
   return (
     <StyledColumn>
       <h3 className="column__title">{props.column.title}</h3>
       <Droppable droppableId={props.column.id}>
-        {(provided) => (
-          <div
+        {(provided, snapshot) => (
+          <StyledList
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="column__tasks-list"
+            $isDraggingOver={snapshot.isDraggingOver}
           >
             {props.tasks.map((task: any, index: number) => (
               <Task key={task.id} task={task} index={index} />
             ))}
             {provided.placeholder}
-          </div>
+          </StyledList>
         )}
       </Droppable>
     </StyledColumn>
@@ -34,10 +38,15 @@ const StyledColumn = styled.div`
     font-size: 22px;
   }
 
-  .column__title,
-  .column__tasks-list {
+  .column__title {
     padding: 8px;
   }
+`;
+
+const StyledList = styled.div<TaskList>`
+  padding: 8px;
+  transition: background-color 0.2s ease;
+  background-color: ${(props) => (props.$isDraggingOver ? "skyblue" : "white")};
 `;
 
 export default Column;
