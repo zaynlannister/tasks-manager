@@ -18,6 +18,9 @@ const StyledHeader = styled.div`
   width: 100%;
   position: fixed;
 
+  @media (max-width: 1120px) {
+  background-color: #111111fc;  
+  }
 `;
 
 export default Header;
