@@ -3,6 +3,7 @@ import Column from "./components/Column.js";
 import data from "./data.js";
 import { DragDropContext } from "react-beautiful-dnd";
 import styled from "styled-components";
+import Header from "./components/Header.js";
 
 const App = () => {
   const [state, setState] = React.useState(data);
@@ -76,18 +77,21 @@ const App = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Container>
-        {state.columnOrder.map((columnId: any) => {
-          const column = state.columns[columnId];
-          const tasks = column.tasksIds.map(
-            (taskId: any) => state.tasks[taskId]
-          );
+    <>
+      <Header />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Container>
+          {state.columnOrder.map((columnId: any) => {
+            const column = state.columns[columnId];
+            const tasks = column.tasksIds.map(
+              (taskId: any) => state.tasks[taskId]
+            );
 
-          return <Column key={column.id} column={column} tasks={tasks} />;
-        })}
-      </Container>
-    </DragDropContext>
+            return <Column key={column.id} column={column} tasks={tasks} />;
+          })}
+        </Container>
+      </DragDropContext>
+    </>
   );
 };
 
@@ -97,6 +101,7 @@ const Container = styled.div`
   padding: 0 20px;
   margin: 0 auto;
   column-gap: 20px;
+  padding-top: 100px;
 `;
 
 export default App;
