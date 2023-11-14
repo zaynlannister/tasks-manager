@@ -22,8 +22,8 @@ const StyledTask = styled.div<{ $isDragging: boolean }>`
   border: 1px solid lightgrey;
   padding: 8px;
   margin-bottom: 8px;
-  border-radius: 2px;
-  background-color: ${(props) => (props.$isDragging ? "lightgreen" : "white")};
+  border-radius: 6px;
+  background-color: ${(props) => (props.$isDragging ? "#bbe4bb" : "white")};
 `;
 
 export default Task;

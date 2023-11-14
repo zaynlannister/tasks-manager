@@ -93,6 +93,10 @@ const App = () => {
 
 const Container = styled.div`
   display: flex;
+  width: min(1120px, 100%);
+  padding: 0 20px;
+  margin: 0 auto;
+  column-gap: 20px;
 `;
 
 export default App;

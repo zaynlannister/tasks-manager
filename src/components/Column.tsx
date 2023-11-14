@@ -31,8 +31,10 @@ const Column = (props: any) => {
 const StyledColumn = styled.div`
   margin: 8px;
   border: 1px solid lightgrey;
-  border-radius: 2px;
-  width: 220px;
+  border-radius: 8px;
+  width: 300px;
+  min-width: 300px;
+  background-color: #fff;
 
   display: flex;
   flex-direction: column;
@@ -48,11 +50,13 @@ const StyledColumn = styled.div`
 `;
 
 const StyledList = styled.div<TaskList>`
+  transition: 160ms all;
   padding: 8px;
-  transition: background-color 0.2s ease;
-  background-color: ${(props) => (props.$isDraggingOver ? "skyblue" : "white")};
+  background-color: ${(props) =>
+    props.$isDraggingOver ? "#bee0ee" : "#e6e6e659"};
   flex-grow: 1;
   min-height: 100px;
+  border-radius: 7px;
 `;
 
 export default Column;
