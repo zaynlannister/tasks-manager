@@ -47,6 +47,11 @@ const StyledColumn = styled.div`
   .column__title {
     padding: 8px;
   }
+
+  @media (max-width: 1120px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 const StyledList = styled.div<TaskList>`

@@ -6,6 +6,7 @@ const Task = (props: any) => {
     <Draggable draggableId={props.task.id} index={props.index}>
       {(provided, snapshot) => (
         <StyledTask
+          id={props.task.id}
           {...provided.dragHandleProps}
           {...provided.draggableProps}
           ref={provided.innerRef}

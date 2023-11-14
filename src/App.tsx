@@ -7,7 +7,26 @@ import Header from "./components/Header.js";
 
 const App = () => {
   const [state, setState] = React.useState(data);
+  // const onDragUpdate = (result: any) => {
 
+  //   const { draggableId } = result;
+
+  //   const draggedElement = document.querySelector(`#${draggableId}`);
+
+  //   if (draggedElement) {
+  //     const { left, right } = draggedElement.getBoundingClientRect();
+  //     const isOutsideLeft = left < 0;
+  //     const isOutsideRight = right > window.innerWidth;
+  //     if (isOutsideLeft || isOutsideRight) {
+  //       console.log("left", isOutsideLeft);
+  //       console.log("right", isOutsideRight);
+  //       const scrollDirection = isOutsideLeft ? -1 : 1;
+  //       const scrollAmount = 338;
+
+  //       document.body.scrollLeft += scrollAmount * scrollDirection;
+  //     }
+  //   }
+  // };
   const onDragEnd = (result: any) => {
     const { destination, draggableId, source } = result;
 
@@ -102,6 +121,11 @@ const Container = styled.div`
   margin: 0 auto;
   column-gap: 20px;
   padding-top: 100px;
+
+  @media (max-width: 1120px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 `;
 
 export default App;
