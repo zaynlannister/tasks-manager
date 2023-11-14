@@ -19,6 +19,11 @@ const StyledColumn = styled.div`
   border: 1px solid lightgrey;
   border-radius: 2px;
 
+  .column__title {
+    font-weight: 600;
+    font-size: 22px;
+  }
+
   .column__title,
   .column__tasks-list {
     padding: 8px;
